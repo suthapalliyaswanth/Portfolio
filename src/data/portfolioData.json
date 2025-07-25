@@ -1,0 +1,107 @@
+{
+  "personalInfo": {
+    "name": "D B Abhishek Anantapalli",
+    "title": "Computer Science Student",
+    "email": "abhishekanantapalli@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/abhishekanantapalli",
+    "github": "https://github.com/AbhiAnantapalli215"
+  },
+  "experiences": [
+    {
+      "id": "aws-intern",
+      "title": "AWS Cloud Internship",
+      "company": "Brain Ovision Solutions Pvt. Ltd.",
+      "duration": "Jan 2024 - Mar 2024",
+      "responsibilities": [
+        "Participated in remote AWS training and project-based learning.",
+        "Gained hands-on experience with EC2, S3, and VPC for infrastructure management.",
+        "Collaborated on cloud-based team projects and completed tasks on time."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "attrisense",
+      "title": "Attrisense HR Analytics Dashboard",
+      "description": "Created a React-based multi-page HR dashboard to monitor KPI metrics. Built an employee directory with pagination, profile editing, and integrated an ML model to detect employees at risk of attrition.",
+      "technologies": ["React", "Firebase", "JavaScript", "Python", "Scikit-learn"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce Website Clone",
+      "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
+      "technologies": ["React", "HTML", "CSS", "Bootstrap"],
+      "githubUrl": "#"
+    },
+    {
+      "id": "attrition-ml",
+      "title": "Employee Attrition Prediction (ML App)",
+      "description": "Built a Flask web app to predict employee attrition using an ensemble ML model. Captured user input via forms and returned real-time predictions with 85% test accuracy.",
+      "technologies": ["Flask", "HTML/CSS", "Scikit-learn"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    }
+  ],
+  "skills": [
+    { "name": "C/C++", "category": "Language" },
+    { "name": "Python", "category": "Language" },
+    { "name": "Java", "category": "Language" },
+    { "name": "React", "category": "Web Tech" },
+    { "name": "Flask", "category": "Web Tech" },
+    { "name": "JavaScript", "category": "Web Tech" },
+    { "name": "HTML/CSS", "category": "Web Tech" },
+    { "name": "Git/GitHub", "category": "Tools" },
+    { "name": "Linux", "category": "Platform" },
+    { "name": "Firebase", "category": "Database" },
+    { "name": "MySQL", "category": "Database" },
+    { "name": "Data Structures", "category": "Course Work" }
+  ],
+  "education": [
+    {
+      "id": "btech",
+      "institution": "Sri Vasavi Engineering College",
+      "degree": "B.Tech in Computer Science and Engineering",
+      "duration": "2022 - Present",
+      "grade": "CGPA: 9.15/10"
+    },
+    {
+      "id": "intermediate",
+      "institution": "JNV Pedavegi, Eluru",
+      "degree": "Intermediate (+2) & SSC",
+      "duration": "2019 - 2022",
+      "grade": "Intermediate: 93%, SSC: 86%"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "networks",
+      "title": "Computer Networks & Internet Protocol (NPTEL)",
+      "provider": "NPTEL",
+      "score": "Score: 83%",
+      "duration": "Jan-Apr 2024"
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity and Privacy (NPTEL)",
+      "provider": "NPTEL",
+      "score": "Score: 70%",
+      "duration": "Jul-Oct 2024"
+    },
+    {
+      "id": "aws-training",
+      "title": "AWS Cloud Training (Brain Ovision)",
+      "provider": "Brain Ovision",
+      "score": "Internship-based",
+      "duration": "Jan-Mar 2024"
+    }
+  ],
+  "navigationItems": [
+    { "id": "education", "label": "Education ?", "href": "#education", "cloudId": "cloud-edu" },
+    { "id": "experience", "label": "Experience ?", "href": "#experience", "cloudId": "cloud-exp" },
+    { "id": "projects", "label": "Projects ?", "href": "#projects", "cloudId": "cloud-proj" },
+    { "id": "skills", "label": "Skills ?", "href": "#skills", "cloudId": "cloud-skills" },
+    { "id": "certifications", "label": "Certs ?", "href": "#certifications", "cloudId": "cloud-cert" }
+  ]
+}
