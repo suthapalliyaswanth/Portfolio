@@ -71,13 +71,12 @@ const LeftPane = () => {
                 </a>
               </div>
               <a
-                href="https://www.overleaf.com/download/project/6877ad159f3e0c5740cf6190/build/19841eda8c6-b3c4ee8307cbc621/output/output.pdf?compileGroup=standard&clsiserverid=clsi-reg-n2d-c-f-l43b&enable_pdf_caching=true&popupDownload=true"
+                href="https://abhianantapalli215.github.io/Resume/resume.pdf"
                 download="DB_Abhishek_Anantapalli_Resume.pdf"
                 className="gradient-button"
               >
                 Download Resume
               </a>
-
             </div>
           </div>
 
