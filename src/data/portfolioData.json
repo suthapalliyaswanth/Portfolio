@@ -1,10 +1,12 @@
 {
   "personalInfo": {
     "name": "D B Abhishek Anantapalli",
+    "location": "📍 AndhraPradesh, India",
     "title": "Full stack & ML Engineer",
     "email": "abhishekanantapalli@gmail.com",
     "linkedin": "https://www.linkedin.com/in/abhishekanantapalli",
-    "github": "https://github.com/AbhiAnantapalli215"
+    "github": "https://github.com/AbhiAnantapalli215",
+    "resume_url": "https://abhianantapalli215.github.io/Resume/resume.pdf"
   },
   "experiences": [
     {
@@ -24,24 +26,32 @@
       "id": "attrisense",
       "title": "Attrisense HR Analytics Dashboard",
       "description": "Created a React-based multi-page HR dashboard to monitor KPI metrics. Built an employee directory with pagination, profile editing, and integrated an ML model to detect employees at risk of attrition.",
-      "technologies": ["React", "Firebase", "JavaScript", "Python", "Scikit-learn"],
-      "githubUrl": "#",
-      "liveUrl": "#"
+      "technologies": ["React", "Firebase", "JavaScript", "Python"],
+      "githubUrl": "https://github.com/AbhiAnantapalli215/Attrisense",
+      "liveUrl": "https://attrisense.web.app"
     },
     {
-      "id": "ecommerce",
-      "title": "E-commerce Website Clone",
-      "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
-      "technologies": ["React", "HTML", "CSS", "Bootstrap"],
-      "githubUrl": "#"
+      "id": "auto-update-resume",
+      "title": "Overleaf Resume Update",
+      "description": "Developed a Chrome extension to fetch Overleaf LaTex code and push to GitHub. Designed a pipeline using GitHub Actions to compile the Latex code and push the resume to portfolio.",
+      "technologies": ["HTML/CSS", "GitHub Actions ", "Docker"],
+      "githubUrl": "https://github.com/AbhiAnantapalli215/Resume",
+      "liveUrl": "https://abhianantapalli215.github.io/Resume/setup.html"
     },
     {
       "id": "attrition-ml",
       "title": "Employee Attrition Prediction (ML App)",
       "description": "Built a Flask web app to predict employee attrition using an ensemble ML model. Captured user input via forms and returned real-time predictions with 85% test accuracy.",
-      "technologies": ["Flask", "HTML/CSS", "Scikit-learn"],
-      "githubUrl": "#",
-      "liveUrl": "#"
+      "technologies": ["Flask", "HTML/CSS", "Scikit-learn", "Docker"],
+      "githubUrl": "https://github.com/AbhiAnantapalli215/EmployeeAttritionPrediction",
+      "liveUrl": "https://empattritionprediction.onrender.com/"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce Website Clone",
+      "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
+      "technologies": ["React", "CSS", "Bootstrap"],
+      "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone"
     }
   ],
   "skills": [
@@ -64,7 +74,7 @@
       "institution": "Sri Vasavi Engineering College",
       "degree": "B.Tech in Computer Science and Engineering",
       "duration": "2022 - Present",
-      "grade": "CGPA: 9.15/10"
+      "grade": "CGPA: 9.2/10"
     },
     {
       "id": "intermediate",
@@ -76,11 +86,11 @@
   ],
   "certifications": [
     {
-      "id": "networks",
-      "title": "Computer Networks & Internet Protocol (NPTEL)",
-      "provider": "NPTEL",
-      "score": "Score: 83%",
-      "duration": "Jan-Apr 2024"
+      "id": "datascience",
+      "title": "Oracle Certified Data Science Professional",
+      "provider": "(OCI 2025)",
+      "score": "Score: 78%",
+      "duration": "Jun-Jul 2025"
     },
     {
       "id": "cybersecurity",
@@ -88,6 +98,13 @@
       "provider": "NPTEL",
       "score": "Score: 70%",
       "duration": "Jul-Oct 2024"
+    },
+    {
+      "id": "networks",
+      "title": "Computer Networks & Internet Protocol (NPTEL)",
+      "provider": "NPTEL",
+      "score": "Score: 83%",
+      "duration": "Jan-Apr 2024"
     },
     {
       "id": "aws-training",

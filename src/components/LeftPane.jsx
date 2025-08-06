@@ -44,6 +44,7 @@ const LeftPane = () => {
               </div>
               <div className="profile-info">
                 <h1 className="profile-name">{personalInfo.name}</h1>
+                <p className="mobile-title">{personalInfo.location}</p>
                 <p className="profile-title">{personalInfo.title}</p>
               </div>
             </div>
@@ -70,22 +71,13 @@ const LeftPane = () => {
                   </svg>
                 </a>
               </div>
-              <button
+              <a
+                href={personalInfo.resume_url}
+                download="Abhishek_Anantapalli_Resume.pdf"
                 className="gradient-button"
-                onClick={() => {
-                  const userConfirmed = window.confirm("Do you want to download the resume?");
-                  if (userConfirmed) {
-                    const link = document.createElement("a");
-                    link.href = "../../Public/resume.pdf";
-                    link.download = "DB_Abhishek_Anantapalli_Resume.pdf";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }
-                }}
               >
-                Download Resume
-              </button>
+                Preview Resume
+              </a> 
 
             </div>
           </div>
@@ -122,8 +114,7 @@ const LeftPane = () => {
             alt="Profile Preview"
             className="profile-modal-image"
           />
-          <p className="profile-modal-name">{personalInfo.name}</p>
-          <p className="profile-modal-title">{personalInfo.title}</p>
+          <p className="profile-modal-name">👋 Hey there, <br /> taking a closer look ahh!</p>
         </div>
         <p className="modal-hint-text">Click anywhere outside to close</p>
       </div>
