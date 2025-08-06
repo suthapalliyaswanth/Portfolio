@@ -70,13 +70,23 @@ const LeftPane = () => {
                   </svg>
                 </a>
               </div>
-              <a
-                href="https://abhianantapalli215.github.io/Resume/resume.pdf"
-                download="DB_Abhishek_Anantapalli_Resume.pdf"
+              <button
                 className="gradient-button"
+                onClick={() => {
+                  const userConfirmed = window.confirm("Do you want to download the resume?");
+                  if (userConfirmed) {
+                    const link = document.createElement("a");
+                    link.href = "../../Public/resume.pdf";
+                    link.download = "DB_Abhishek_Anantapalli_Resume.pdf";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
+                }}
               >
                 Download Resume
-              </a>
+              </button>
+
             </div>
           </div>
 
