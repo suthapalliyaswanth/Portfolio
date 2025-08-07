@@ -91,7 +91,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -196,14 +195,199 @@ body {
   background-position: right center;
   transform: scale(1.05);
 }
-/* Cloud Navigation Container */
-.svg-nav {
+
+.top-section{
+  margin-bottom: 50px;
+}
+
+.bottom-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex:1;
+}
+
+
+/* Device Preview */
+.device-preview {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #00FFFF;
+}
+
+.device-preview:hover {
+  transform: translateY(-5px);
+}
+
+.device-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.device-frame {
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+/* Modern Laptop Frame */
+.laptop-frame {
   position: relative;
+  transform-origin: bottom center;
+}
+
+.laptop-screen {
   width: 400px;
   height: 250px;
-  align-self: center;
-  margin-left: 80px;
+  background: #1a1a1a;
+  border-radius: 12px 12px 0 0;
+  padding: 15px;
+  box-shadow: 
+    0 0 0 3px #2a2a2a,
+    0 15px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
 }
+
+.laptop-base {
+  width: 400px;
+  height: 25px;
+  background: linear-gradient(145deg, #e8e8e8, #d0d0d0);
+  border-radius: 0 0 16px 16px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptop-trackpad {
+  width: 80px;
+  height: 8px;
+  background: #bbb;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Video styles */
+.project-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-fallback {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  color: #717171;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+  align-items: center;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+
+
+.device-preview {
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.device-preview.open {
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cloud-link:hover .cloud-icon {
+  transform: scale(1);
+  color: #aee0f5;
+  transition: all 0.3s ease;
+}
+
+/* Cloud Navigation Container */
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers horizontally */
+  justify-content: center;
+}
+
+.svg-nav {
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  margin-left: 60px;
+}
+
+.device-preview {
+  background: #101010;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.preview-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.preview-title {
+  flex: 1;
+  margin-left: 0.75rem;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.close-preview-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.preview-button {
+  margin-top: 10px;
+  background: linear-gradient(to right, #6ec1e4, #4e54c8);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.preview-button:hover {
+  background: linear-gradient(to right, #4e54c8, #6ec1e4);
+}
+
+
 
 /* Thinking Image */
 .thinking-img {
@@ -211,6 +395,7 @@ body {
   height: auto;
   margin-right: 30px;
   margin-left: -100px;
+  margin-bottom: -100px;
 }
 
 /* Cloud Link Styling */
@@ -273,11 +458,11 @@ body {
 }
 
 /* Positioning of Each Cloud */
-#cloud-edu     { top:  100px;  left: 160px; }
-#cloud-exp     { top: -40px;  left:   0px; }
-#cloud-proj    { top:  60px;  left: -40px; }
-#cloud-cert    { top:   0px;  left: 200px; }
-#cloud-skills  { top: -80px;  left: 120px; }
+#cloud-edu     { top:  100px;  left: 60px; }
+#cloud-exp     { top: -40px;  left:   -100px; }
+#cloud-proj    { top:  60px;  left: -140px; }
+#cloud-cert    { top:   0px;  left: 100px; }
+#cloud-skills  { top: -80px;  left: 20px; }
 
 /* Right Pane */
 .right-pane {
@@ -665,6 +850,8 @@ body {
 .profile-modal.show {
   opacity: 1;
   visibility: visible;
+  border: 4px solid transparent;
+  background: var(--gradient) border-box;
 }
 
 .profile-modal-content {
@@ -686,7 +873,7 @@ body {
 .modal-hint-text {
   margin-top: 1rem;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
   font-size: 0.875rem;
   font-style: italic;
 }
@@ -698,21 +885,11 @@ body {
   object-fit: cover;
 }
 
-.profile-modal-name {
-  text-align: center;
-  margin-top: 1rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-}
-
 .profile-modal-title {
   text-align: center;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #5c626e;
 }
-
-
-
 
 /* Footer */
 .footer {

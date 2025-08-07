@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import portfolioData from '../data/portfolioData.json';
 import profileImage from '../static/profile.jpeg';
 
@@ -6,25 +6,6 @@ const RightPane = () => {
   const [modalState, setModalState] = useState({ isVisible: false, title: '', message: '' });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [showProfileModal, setShowProfileModal] = useState(false);
-
-  // Close modal on Escape key
-    useEffect(() => {
-      const handleKeyDown = (e) => {
-        if (e.key === 'Escape') {
-          setShowProfileModal(false);
-        }
-      };
-  
-      if (showProfileModal) {
-        window.addEventListener('keydown', handleKeyDown);
-      }
-  
-      return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }, [showProfileModal]);
-
-
   const {
     personalInfo = {},
     experiences = [],
@@ -34,13 +15,14 @@ const RightPane = () => {
     certifications = [],
   } = portfolioData;
 
-  const showModal = (title, message) => {
-    setModalState({ isVisible: true, title, message });
-  };
+  const showModal = (title, message) => setModalState({ isVisible: true, title, message });
+  const hideModal = () => setModalState(prev => ({ ...prev, isVisible: false }));
 
-  const hideModal = () => {
-    setModalState(prev => ({ ...prev, isVisible: false }));
-  };
+  useEffect(() => {
+    const handleKeyDown = (e) => e.key === 'Escape' && setShowProfileModal(false);
+    if (showProfileModal) window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showProfileModal]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,236 +31,69 @@ const RightPane = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const trimmed = {
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      message: formData.message.trim(),
-    };
-
+    const trimmed = Object.fromEntries(Object.entries(formData).map(([k, v]) => [k, v.trim()]));
     if (!trimmed.name || !trimmed.email || !trimmed.message) {
       showModal('Oops!', 'Please fill out all fields.');
       return;
     }
-
-    showModal('Success!', 'Your message has been sent. Thank you for reaching out!');
+    showModal('Success!', 'Your message has been sent!');
     setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handlePreview = (project) => {
+    window.dispatchEvent(new CustomEvent('openPreviewProject', { detail: project }));
   };
 
   return (
     <>
       <main className="right-pane">
-        {/* Mobile Header */}
         <div className="mobile-header">
-          <div className="profile-image-container">
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="profile-image"
-              onClick={() => setShowProfileModal(true)}
-            />
-            <div className="profile-gradient-border"></div>
-          </div>
-          <h1 className="mobile-name">{personalInfo.name}</h1>
-          <p className="mobile-title">{personalInfo.location}</p>
-          <p className="mobile-title">{personalInfo.title}</p>
-          <div className="social-links">
-                <a href={`mailto:${personalInfo.email}`} className="social-link-hover" title="Email">
-                  <svg className="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </a>
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link-hover" title="LinkedIn">
-                  <svg className="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </a>
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link-hover" title="GitHub">
-                  <svg className="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                </a>
-              </div>
-          <a
-            href={personalInfo.resume_url}
-            download="Abhishek_Anantapalli_Resume.pdf"
-            className="gradient-button"
-          >
-            Preview Resume
-          </a>
+          <img src={profileImage} alt="Profile" className="profile-image" onClick={() => setShowProfileModal(true)} />
+          <h1>{personalInfo.name}</h1>
+          <p>{personalInfo.location}</p>
+          <p>{personalInfo.title}</p>
         </div>
 
-        {/* Experience Section */}
-        <section id="experience" className="section">
-          <h2 className="section-title">Experience</h2>
-          {experiences.map((exp) => (
-            <div key={exp.id} className="content-card">
-              <div className="experience-header">
-                <div>
-                  <h3 className="experience-title">{exp.title}</h3>
-                  <p className="experience-company">{exp.company}</p>
-                </div>
-                <span className="experience-duration">{exp.duration}</span>
-              </div>
-              <ul className="experience-list">
-                {exp.responsibilities.map((responsibility, index) => (
-                  <li key={index}>{responsibility}</li>
-                ))}
-              </ul>
+        <section id="projects" className="section">
+          <h2>Projects</h2>
+          {projects.map((project) => (
+            <div key={project.id} className="content-card">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <button className="preview-button" onClick={() => handlePreview(project)}>Show Preview</button>
             </div>
           ))}
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="section">
-          <h2 className="section-title">Projects</h2>
-          <div className="projects-container">
-            {projects.map((project) => (
-              <div key={project.id} className="content-card">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-technologies">
-                  {project.technologies.map((tech, index) => (
-                    <span key={`${tech}-${index}`} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  {project.githubUrl && (
-                    <a href={project.githubUrl} className="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  )}
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} className="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section id="skills" className="section">
-          <h2 className="section-title">Skills</h2>
-          <div className="content-card">
-            <div className="skills-grid">
-              {skills.map((skill, index) => (
-                <div key={index} className="skill-item">
-                  <span className="skill-name">{skill.name}</span>
-                  <span className="skill-category">{skill.category}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Education Section */}
-        <section id="education" className="section">
-          <h2 className="section-title">Education</h2>
-          <div className="education-container">
-            {education.map((edu) => (
-              <div key={edu.id} className="content-card">
-                <div className="education-header">
-                  <div>
-                    <h3 className="education-institution">{edu.institution}</h3>
-                    <p className="education-degree">{edu.degree}</p>
-                  </div>
-                  <span className="education-duration">{edu.duration}</span>
-                </div>
-                {edu.grade && <p className="education-grade">{edu.grade}</p>}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Certifications Section */}
-        <section id="certifications" className="section">
-          <h2 className="section-title">Certifications</h2>
-          <div className="certifications-container">
-            {certifications.map((cert) => (
-              <div key={cert.id} className="content-card">
-                <p className="certification-title">{cert.title}</p>
-                <p className="certification-details">{cert.score} ({cert.duration})</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Contact Section */}
         <section id="contact" className="section">
-          <h2 className="section-title">Contact Me</h2>
-          <div className="content-card">
-            <p className="contact-description">Have a question or want to work together? Feel free to reach out.</p>
-            <form onSubmit={handleSubmit} className="contact-form" aria-label="Contact Form">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="form-input"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                className="form-input"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Your Message"
-                className="form-input form-textarea"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              />
-              <button type="submit" className="gradient-button form-submit">Send Message</button>
-            </form>
-          </div>
+          <h2>Contact Me</h2>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <input name="name" value={formData.name} onChange={handleInputChange} placeholder="Your Name" required />
+            <input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="Your Email" required />
+            <textarea name="message" rows="4" value={formData.message} onChange={handleInputChange} placeholder="Your Message" required />
+            <button type="submit">Send Message</button>
+          </form>
         </section>
-
-        <footer className="footer">
-          <p>Designed & Built by {personalInfo.name}</p>
-        </footer>
       </main>
 
       {/* Modal */}
       {modalState.isVisible && (
-        <div className="modal visible" onClick={(e) => e.target.classList.contains('modal') && hideModal()}>
+        <div className="modal" onClick={(e) => e.target.classList.contains('modal') && hideModal()}>
           <div className="modal-content">
-            <h3 className="modal-title">{modalState.title}</h3>
-            <p className="modal-message">{modalState.message}</p>
-            <button onClick={hideModal} className="gradient-button modal-close">Close</button>
+            <h3>{modalState.title}</h3>
+            <p>{modalState.message}</p>
+            <button onClick={hideModal}>Close</button>
           </div>
         </div>
       )}
 
       {/* Profile Modal */}
-            <div
-              className={`profile-modal ${showProfileModal ? 'show' : ''}`}
-              onClick={(e) => {
-                if (e.target.classList.contains('profile-modal')) {
-                  setShowProfileModal(false);
-                }
-              }}
-            >
-              <div className="profile-modal-content">
-                <img
-                  src={personalInfo.profileImage || profileImage}
-                  alt="Profile Preview"
-                  className="profile-modal-image"
-                />
-                <p className="profile-modal-name">👋 Hey there, <br /> taking a closer look ahh!</p>
-              </div>
-              <p className="modal-hint-text">Click anywhere outside to close</p>
-            </div>
-
+      <div className={`profile-modal ${showProfileModal ? 'show' : ''}`} onClick={(e) => e.target.classList.contains('profile-modal') && setShowProfileModal(false)}>
+        <div className="profile-modal-content">
+          <img src={profileImage} alt="Profile" />
+          <p>👋 Hey there, <br /> taking a closer look ahh!</p>
+        </div>
+      </div>
     </>
   );
 };

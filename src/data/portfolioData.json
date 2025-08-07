@@ -28,7 +28,8 @@
       "description": "Created a React-based multi-page HR dashboard to monitor KPI metrics. Built an employee directory with pagination, profile editing, and integrated an ML model to detect employees at risk of attrition.",
       "technologies": ["React", "Firebase", "JavaScript", "Python"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/Attrisense",
-      "liveUrl": "https://attrisense.web.app"
+      "liveUrl": "https://attrisense.web.app",
+      "logo": "../static/attrisense.png"
     },
     {
       "id": "auto-update-resume",

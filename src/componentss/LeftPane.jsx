@@ -3,51 +3,60 @@ import portfolioData from '../data/portfolioData.json';
 import think from '../static/thinking.png';
 import profileImage from '../static/profile.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloud , faXmark} from '@fortawesome/free-solid-svg-icons';
-import video from '../static/attrisense.mp4';
-import logo from '../static/attrisense.png';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
+
 const LeftPane = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [activeProject, setActiveProject] = useState(null);
   const [videoError, setVideoError] = useState(false);
-  const previewRef = useRef(null);
 
   const { personalInfo, navigationItems } = portfolioData;
 
-  // Handle open/close preview events
+  const targetRef = useRef(null);
+  const previewRef = useRef(null);
+
+  // Hover logic
   useEffect(() => {
-    const open = (e) => {
-      setVideoError(false);
-      setActiveProject(e.detail);
-      setTimeout(() => {
-        previewRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    };
+    const target = targetRef.current;
+    const preview = previewRef.current;
 
-    const close = () => {
-      setActiveProject(null);
-    };
+    if (!target || !preview) return;
 
-    window.addEventListener('openPreviewProject', open);
-    window.addEventListener('closePreviewProject', close);
+    const handleMouseEnter = () => preview.classList.add('open');
+    const handleMouseLeave = () => preview.classList.remove('open');
+
+    target.addEventListener('mouseenter', handleMouseEnter);
+    target.addEventListener('mouseleave', handleMouseLeave);
+
     return () => {
-      window.removeEventListener('openPreviewProject', open);
-      window.removeEventListener('closePreviewProject', close);
+      target.removeEventListener('mouseenter', handleMouseEnter);
+      target.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
-  // Escape key closes profile modal
+  // Close modal on Escape key
   useEffect(() => {
-    const handler = (e) => e.key === 'Escape' && setShowProfileModal(false);
-    if (showProfileModal) window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setShowProfileModal(false);
+      }
+    };
+
+    if (showProfileModal) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [showProfileModal]);
+
+  const laptopVideo = "https://commondataste.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  // const laptopVideo = ""; // Uncomment this to simulate missing video
 
   return (
     <>
       <aside className="left-pane">
         <div className="left-content">
-          {/* Profile Section */}
           <div className="top-section">
             {/* Profile Section */}
             <div className="profile-section">
@@ -61,7 +70,7 @@ const LeftPane = () => {
                 <div className="profile-gradient-border"></div>
               </div>
               <div className="profile-info">
-                <h1 className="profile-name">{personalInfo.name}</h1>
+                <h1 ref={targetRef} className="profile-name">{personalInfo.name}</h1>
                 <p className="mobile-title">{personalInfo.location}</p>
                 <p className="profile-title">{personalInfo.title}</p>
               </div>
@@ -91,7 +100,7 @@ const LeftPane = () => {
               </div>
               <a
                 href={personalInfo.resume_url}
-                download="Abhishek_Anantapalli.pdf"
+                download="Abhishek_Anantapalli_Resume.pdf"
                 className="gradient-button"
               >
                 Preview Resume
@@ -99,67 +108,50 @@ const LeftPane = () => {
             </div>
           </div>
 
+          {/* Bottom Section */}
+          <div className="bottom-section">
+            {/* Navigation Clouds */}
+            <div className="svg-nav">
+              <img className="thinking-img" src={think} alt="thinking figure" />
+              {navigationItems.map((item) => (
+                <a key={item.id} href={item.href} id={item.cloudId} className="cloud-link">
+                  <div className="cloud-wrapper">
+                    <FontAwesomeIcon icon={faCloud} className="cloud-icon" />
+                    <span className="cloud-label">{item.label}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
 
-          {/* Navigation & Preview */}
-          <div className="bottom-section" ref={previewRef}>
-            {!activeProject ? (
-              <div className="svg-nav">
-                <img className="thinking-img" src={think} alt="thinking" />
-                {navigationItems.map((item) => (
-                  <a key={item.id} href={item.href} id={item.cloudId} className="cloud-link">
-                    <div className="cloud-wrapper">
-                      <FontAwesomeIcon icon={faCloud} className="cloud-icon" />
-                      <span className="cloud-label">{item.label}</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <div className="device-preview.open">
-                <div className="preview-header">
-                  {(activeProject.logo && activeProject.logo!=='') ? 
-                  (
-                    <img src={logo} width={150} height={30} alt='logo' />
-                  ) :
-                  (
-                    <h3>{activeProject.title}</h3>
-                  )}
-                  
-                  <button onClick={() => window.dispatchEvent(new Event('closePreviewProject'))}>
-                    <FontAwesomeIcon icon={faXmark} />
-                  </button>
-                </div>
-                <div className="device-container laptop-mode">
-                  <div className="laptop-frame">
-                    <div className="laptop-screen">
-                      {!videoError ? (
-                        <video
-                          src={video}
-                          // src=''
-                          autoPlay
-                          loop
-                          muted
-                          className="project-video"
-                          onError={() => {
-                            setVideoError(true);
-                          }}
-                        />
-                      ) : (
-                        <div className="video-fallback">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+            {/* Video Preview or Fallback */}
+            <div className="device-preview">
+              <div className={`device-container laptop-mode`}>
+                <div className="laptop-frame">
+                  <div className="laptop-screen">
+                    {laptopVideo && !videoError ? (
+                      <video
+                        src={laptopVideo}
+                        autoPlay
+                        loop
+                        muted
+                        className="project-video"
+                        onError={() => setVideoError(true)}
+                      />
+                    ) : (
+                      <div className="video-fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
                           <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
                         </svg>
                         <p style={{ textAlign: 'center', padding: '20px' }}>No Show </p>
                       </div>
-                      )}
-                    </div>
-                    <div className="laptop-base">
-                      <div className="laptop-trackpad"></div>
-                    </div>
+                    )}
+                  </div>
+                  <div className="laptop-base">
+                    <div className="laptop-trackpad"></div>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </aside>
@@ -167,11 +159,19 @@ const LeftPane = () => {
       {/* Profile Modal */}
       <div
         className={`profile-modal ${showProfileModal ? 'show' : ''}`}
-        onClick={(e) => e.target.classList.contains('profile-modal') && setShowProfileModal(false)}
+        onClick={(e) => {
+          if (e.target.classList.contains('profile-modal')) {
+            setShowProfileModal(false);
+          }
+        }}
       >
         <div className="profile-modal-content">
-          <img src={profileImage} alt="Profile" className="profile-modal-image" />
-          <p className="profile-modal-title">👋 Hey there, <br /> taking a closer look ahh!</p>
+          <img
+            src={personalInfo.profileImage || profileImage}
+            alt="Profile Preview"
+            className="profile-modal-image"
+          />
+          <p className="profile-modal-name">👋 Hey there, <br /> taking a closer look ahh!</p>
         </div>
         <p className="modal-hint-text">Click anywhere outside to close</p>
       </div>
