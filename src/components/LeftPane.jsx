@@ -4,8 +4,8 @@ import think from '../static/thinking.png';
 import profileImage from '../static/profile.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloud , faXmark} from '@fortawesome/free-solid-svg-icons';
-import video from '../static/attrisense.mp4';
-import logo from '../static/attrisense.png';
+// import video from '../static/attrisense.mp4';
+// import logo from '../static/attrisense.png';
 const LeftPane = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
@@ -117,14 +117,8 @@ const LeftPane = () => {
             ) : (
               <div className="device-preview.open">
                 <div className="preview-header">
-                  {(activeProject.logo && activeProject.logo!=='') ? 
-                  (
-                    <img src={logo} width={150} height={30} alt='logo' />
-                  ) :
-                  (
-                    <h3>{activeProject.title}</h3>
-                  )}
-                  
+                  {/* x */}
+                  <h3>{activeProject.title}</h3>
                   <button onClick={() => window.dispatchEvent(new Event('closePreviewProject'))}>
                     <FontAwesomeIcon icon={faXmark} />
                   </button>
@@ -134,8 +128,8 @@ const LeftPane = () => {
                     <div className="laptop-screen">
                       {!videoError ? (
                         <video
-                          src={video}
-                          // src=''
+                          // src={video}
+                          src=''
                           autoPlay
                           loop
                           muted

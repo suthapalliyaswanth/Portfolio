@@ -18,7 +18,8 @@
         "Participated in remote AWS training and project-based learning.",
         "Gained hands-on experience with EC2, S3, and VPC for infrastructure management.",
         "Collaborated on cloud-based team projects and completed tasks on time."
-      ]
+      ],
+      "logo": "bov"
     }
   ],
   "projects": [
@@ -55,34 +56,102 @@
       "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone"
     }
   ],
+
   "skills": [
-    { "name": "C/C++", "category": "Language" },
-    { "name": "Python", "category": "Language" },
-    { "name": "Java", "category": "Language" },
-    { "name": "React", "category": "Web Tech" },
-    { "name": "Flask", "category": "Web Tech" },
-    { "name": "JavaScript", "category": "Web Tech" },
-    { "name": "HTML/CSS", "category": "Web Tech" },
-    { "name": "Git/GitHub", "category": "Tools" },
-    { "name": "Linux", "category": "Platform" },
-    { "name": "Firebase", "category": "Database" },
-    { "name": "MySQL", "category": "Database" },
-    { "name": "Data Structures", "category": "Course Work" }
+    {
+      "name": "Java",
+      "category": "Language",
+      "logo": "https://skillicons.dev/icons?i=java"
+    },
+    {
+      "name": "C++",
+      "category": "Language",
+      "logo": "https://skillicons.dev/icons?i=cpp"
+    },
+    {
+      "name": "Python",
+      "category": "Language",
+      "logo": "https://skillicons.dev/icons?i=python"
+    },
+    {
+      "name": "JavaScript",
+      "category": "Language",
+      "logo": "https://skillicons.dev/icons?i=javascript"
+    },
+    {
+      "name": "React",
+      "category": "Frontend",
+      "logo": "https://skillicons.dev/icons?i=react"
+    },
+    {
+      "name": "HTML",
+      "category": "Frontend",
+      "logo": "https://skillicons.dev/icons?i=html"
+    },
+    {
+      "name": "CSS",
+      "category": "Frontend",
+      "logo": "https://skillicons.dev/icons?i=css"
+    },
+    {
+      "name": "Bootstrap",
+      "category": "Frontend",
+      "logo": "https://skillicons.dev/icons?i=bootstrap"
+    },
+    {
+      "name": "Flask",
+      "category": "Backend",
+      "logo": "https://skillicons.dev/icons?i=flask"
+    },
+    {
+      "name": "Firebase",
+      "category": "Backend",
+      "logo": "https://skillicons.dev/icons?i=firebase"
+    },
+    {
+      "name": "MySQL",
+      "category": "Backend",
+      "logo": "https://skillicons.dev/icons?i=mysql"
+    },
+    {
+      "name": "MongoDB",
+      "category": "Backend",
+      "logo": "https://skillicons.dev/icons?i=mongodb"
+    },
+    {
+      "name": "GitHub",
+      "category": "Tools",
+      "logo": "https://skillicons.dev/icons?i=github"
+    },
+    {
+      "name": "AWS",
+      "category": "Tools",
+      "logo": "https://skillicons.dev/icons?i=aws"
+    },
+    {
+      "name": "Docker",
+      "category": "Deployment",
+      "logo": "https://skillicons.dev/icons?i=docker"
+    }
   ],
+
+
   "education": [
     {
       "id": "btech",
       "institution": "Sri Vasavi Engineering College",
-      "degree": "B.Tech in Computer Science and Engineering",
+      "degree": "B.Tech in Computer Science",
       "duration": "2022 - Present",
-      "grade": "CGPA: 9.2/10"
+      "grade": "CGPA: 9.2/10",
+      "logo": "svec"
     },
     {
       "id": "intermediate",
       "institution": "JNV Pedavegi, Eluru",
       "degree": "Intermediate (+2) & SSC",
       "duration": "2019 - 2022",
-      "grade": "Intermediate: 93%, SSC: 86%"
+      "grade": "Intermediate: 93%, SSC: 86%",
+      "logo": "jnv"
     }
   ],
   "certifications": [
@@ -91,28 +160,32 @@
       "title": "Oracle Certified Data Science Professional",
       "provider": "(OCI 2025)",
       "score": "Score: 78%",
-      "duration": "Jun-Jul 2025"
+      "duration": "Jun-Jul 2025",
+      "logo": "oracle"
     },
     {
       "id": "cybersecurity",
       "title": "Cybersecurity and Privacy (NPTEL)",
       "provider": "NPTEL",
       "score": "Score: 70%",
-      "duration": "Jul-Oct 2024"
+      "duration": "Jul-Oct 2024",
+      "logo": "nptel"
     },
     {
       "id": "networks",
       "title": "Computer Networks & Internet Protocol (NPTEL)",
       "provider": "NPTEL",
       "score": "Score: 83%",
-      "duration": "Jan-Apr 2024"
+      "duration": "Jan-Apr 2024",
+      "logo": "nptel"
     },
     {
       "id": "aws-training",
       "title": "AWS Cloud Training (Brain Ovision)",
       "provider": "Brain Ovision",
       "score": "Internship-based",
-      "duration": "Jan-Mar 2024"
+      "duration": "Jan-Mar 2024",
+      "logo": "bov"
     }
   ],
   "navigationItems": [
