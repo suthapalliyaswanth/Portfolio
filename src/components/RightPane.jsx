@@ -8,7 +8,7 @@ import nptel from '../static/logos/nptel.png';
 import oracle from '../static/logos/oracle.png';
 import svec from '../static/logos/svec.png';
 import { BiSolidCameraMovie } from "react-icons/bi";
-
+import FloatingNav from './FloatingNav';
 
 const RightPane = () => {
   const logoMap = {
@@ -20,7 +20,6 @@ const RightPane = () => {
   };
 
   const [modalState, setModalState] = useState({ isVisible: false, title: '', message: '' });
-  const [showProfileModal, setShowProfileModal] = useState(false);
   const {
     personalInfo = {},
     experiences = [],
@@ -32,12 +31,6 @@ const RightPane = () => {
 
   const showModal = (title, message) => setModalState({ isVisible: true, title, message });
   const hideModal = () => setModalState(prev => ({ ...prev, isVisible: false }));
-
-  useEffect(() => {
-    const handleKeyDown = (e) => e.key === 'Escape' && setShowProfileModal(false);
-    if (showProfileModal) window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showProfileModal]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -90,7 +83,6 @@ const RightPane = () => {
               src={profileImage}
               alt="Profile"
               className="profile-image"
-              onClick={() => setShowProfileModal(true)}
             />
             <div className="profile-gradient-border"></div>
           </div>
@@ -125,21 +117,34 @@ const RightPane = () => {
             Preview Resume
           </a>
         </div>
+        <FloatingNav
+  sections={[
+    { id: "experience", label: "Experience", icon: "💼", color: "#FF4C4C" },
+    { id: "skills", label: "Skills", icon: "🛠", color: "#FFD93D" },
+    { id: "projects", label: "Projects", icon: "📂", color: "#00C2FF" },
+    { id: "education", label: "Education", icon: "🎓", color: "#9C27B0" },
+    { id: "certifications", label: "Certification", icon: "📜", color: "#FF9800" },
+    { id: "contact", label: "Contact", icon: "✉️", color: "#4CAF50" },
+  ]}
+/>
+
 
         {/* Experience Section */}
         <section id="experience" className="section">
           <h2 className="section-title">Experience</h2>
           {experiences.map((exp) => (
             <div key={exp.id} className="content-card">
-              <div className="experience-header">
+              <div className='flex flex-column'>
                 <div className='exp-logo'>
                   <img src={logoMap[exp.logo]} alt={exp.logo} height={50}></img>
                 </div>
-                <div className='full-width'>
-                  <h3 className="experience-title">{exp.title}</h3>
-                  <p className="experience-company">{exp.company}</p>
+                <div className="experience-header">
+                  <div>
+                    <h3 className="experience-title">{exp.title}</h3>
+                    <p className="experience-company">{exp.company}</p>
+                  </div>
+                  <span className="experience-duration">{exp.duration}</span>
                 </div>
-                <span className="experience-duration">{exp.duration}</span>
               </div>
               <ul className="experience-list">
                 {exp.responsibilities.map((responsibility, index) => (
@@ -313,17 +318,6 @@ const RightPane = () => {
         </div>
       )}
 
-      {/* Profile Modal */}
-      <div
-        className={`profile-modal ${showProfileModal ? 'show' : ''}`}
-        onClick={(e) => e.target.classList.contains('profile-modal') && setShowProfileModal(false)}
-      >
-        <div className="profile-modal-content">
-          <img src={profileImage} alt="Profile" className="profile-modal-image" />
-          <p className="profile-modal-title">👋 Hey there, <br /> taking a closer look ahh!</p>
-        </div>
-        <p className="modal-hint-text">Click anywhere outside to close</p>
-      </div>
     </>
   );
 };

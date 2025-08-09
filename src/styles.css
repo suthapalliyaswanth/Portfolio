@@ -473,7 +473,10 @@ body {
   grid-column: 1 / -1;
   background-color: var(--secondary-color);
   padding: 1.5rem;
+  scroll-behavior: smooth;
+  overflow-y: auto; /* make it scrollable */
 }
+
 
 @media (min-width: 768px) {
   .right-pane {
@@ -596,6 +599,7 @@ body {
 /* Experience Section */
 .experience-header {
   display: flex;
+  flex: 1;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 0.75rem;
@@ -603,9 +607,6 @@ body {
 
 .exp-logo{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 15px;
 }
 
 .experience-title {
@@ -707,6 +708,12 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+@media (max-width: 425px) {
+  .skills-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 
 .skill-item {
   display: flex;
@@ -724,6 +731,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-right: 5px;
 }
 
 .skill-name {
@@ -1030,4 +1038,88 @@ body {
   .preview-button {
     display: none;
   }
+}
+
+/* Only show on mobile */
+@media (min-width: 1024px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.floating-ball {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #00bfff, #ff69b4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  z-index: 9999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  touch-action: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.floating-ball svg {
+  font-size: 1.5rem;
+  transition: transform 0.8s ease, opacity 0.3s ease;
+}
+
+.floating-ball.open svg {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 30px;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.menu-card {
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.menu-label {
+  color: white;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

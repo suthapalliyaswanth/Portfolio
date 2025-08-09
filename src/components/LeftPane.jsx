@@ -4,8 +4,7 @@ import think from '../static/thinking.png';
 import profileImage from '../static/profile.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloud , faXmark} from '@fortawesome/free-solid-svg-icons';
-// import video from '../static/attrisense.mp4';
-// import logo from '../static/attrisense.png';
+
 const LeftPane = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
@@ -115,10 +114,10 @@ const LeftPane = () => {
                     </a>
                   ))}
                 </div>
-                <p className='hint-for-nav'>
-<pre>{`"Thinking of something,
-            ask clouds for guidance!"`}</pre>
-                </p>
+                <pre className='hint-for-nav'>
+  {`"Thinking of something,
+            ask clouds for guidance!"`}
+                </pre>
               </>
             ) : (
               <div className="device-preview.open">
@@ -135,7 +134,7 @@ const LeftPane = () => {
                       {!videoError ? (
                         <video
                           // src={video}
-                          src=''
+                          src='https://streamable.com/7amy9'
                           autoPlay
                           loop
                           muted
@@ -146,11 +145,11 @@ const LeftPane = () => {
                         />
                       ) : (
                         <div className="video-fallback">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
-                          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
-                        </svg>
-                        <p style={{ textAlign: 'center', padding: '20px' }}>No Show </p>
-                      </div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
+                          </svg>
+                          <p style={{ textAlign: 'center', padding: '20px' }}>No Show </p>
+                        </div>
                       )}
                     </div>
                     <div className="laptop-base">
