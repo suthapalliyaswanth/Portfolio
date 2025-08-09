@@ -72,7 +72,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 3rem;
+  padding: 1rem 1.5rem;
   background-color: var(--primary-color);
   text-align: center;
 }
@@ -100,7 +100,6 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 2rem;
   margin-top: 2rem;
 }
 
@@ -207,17 +206,13 @@ body {
   flex:1;
 }
 
+.centermeverically {
+  display: flex;
+  align-items: center;
+}
+
 
 /* Device Preview */
-.device-preview {
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: #00FFFF;
-}
-
-.device-preview:hover {
-  transform: translateY(-5px);
-}
 
 .device-container {
   perspective: 1000px;
@@ -231,6 +226,15 @@ body {
   transform-style: preserve-3d;
 }
 
+.circle-cross{
+  background: transparent;
+  padding: 2px;
+  border-radius: 20px;
+  font-size: small;
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
 /* Modern Laptop Frame */
 .laptop-frame {
   position: relative;
@@ -238,8 +242,8 @@ body {
 }
 
 .laptop-screen {
-  width: 400px;
-  height: 250px;
+  width: 500px;
+  height: 300px;
   background: #1a1a1a;
   border-radius: 12px 12px 0 0;
   padding: 15px;
@@ -251,8 +255,8 @@ body {
 }
 
 .laptop-base {
-  width: 400px;
-  height: 25px;
+  width: 507px;
+  height: 32px;
   background: linear-gradient(145deg, #e8e8e8, #d0d0d0);
   border-radius: 0 0 16px 16px;
   margin: 0 auto;
@@ -263,6 +267,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: -4px;
 }
 
 .laptop-trackpad {
@@ -295,18 +300,10 @@ body {
   border-radius: 8px;
 }
 
-
 .device-preview {
-  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.device-preview.open {
-  transform: translateX(0%);
   opacity: 1;
   pointer-events: auto;
+  transform: rotateY(180deg);
 }
 
 .cloud-link:hover .cloud-icon {
@@ -338,23 +335,13 @@ body {
   font-size: 13px;
 }
 
-.device-preview {
-  background: #101010;
-  border-radius: 16px;
-  padding: 1.5rem 1rem;
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-
 .preview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   margin-bottom: 1rem;
+  margin-top: -45px;
 }
 
 .preview-logo {
@@ -699,13 +686,18 @@ body {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1.4rem;
   text-align: left;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 425px) {
@@ -719,11 +711,19 @@ body {
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
-  gap: 1rem;
+  gap: 0.9rem;
+  transition: transform 0.3s ease 0.1s, box-shadow 0.3s ease 0.1s;
+}
+
+@media (min-width: 1024px) {
+  .skill-item:hover {
+    transform: translate(-3px, -3px); /* both X and Y shift */
+    box-shadow: var(--hover-shadow);
+  }
 }
 
 .skill-logo{
-  padding: 8px 0 0 25px;
+  padding: 8px 0 0 24px;
 }
 
 /* Common style for skill content */
@@ -1122,4 +1122,14 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+
+.bottom-section{
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.bottom-section.flipped{
+  transform: rotateY(180deg);
 }

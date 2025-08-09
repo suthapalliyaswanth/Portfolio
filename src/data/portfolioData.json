@@ -30,7 +30,8 @@
       "technologies": ["React", "Firebase", "JavaScript", "Python"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/Attrisense",
       "liveUrl": "https://attrisense.web.app",
-      "logo": "../static/attrisense.png"
+      "logoname": "attrisense",
+      "video": "https://www.youtube.com/embed/iuvF10BgBBQ"
     },
     {
       "id": "auto-update-resume",
@@ -38,7 +39,8 @@
       "description": "Developed a Chrome extension to fetch Overleaf LaTex code and push to GitHub. Designed a pipeline using GitHub Actions to compile the Latex code and push the resume to portfolio.",
       "technologies": ["HTML/CSS", "GitHub Actions ", "Docker"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/Resume",
-      "liveUrl": "https://abhianantapalli215.github.io/Resume/setup.html"
+      "liveUrl": "https://abhianantapalli215.github.io/Resume/setup.html",
+      "logo": "aru"
     },
     {
       "id": "attrition-ml",
@@ -46,14 +48,18 @@
       "description": "Developed a Flask web app to predict employee attrition using an ensemble ML model. Collected user input via forms and delivered real-time predictions with 86% test recall, prioritizing accurate leaver identification.",
       "technologies": ["Flask", "HTML/CSS", "Scikit-learn", "Docker"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/EmployeeAttritionPrediction",
-      "liveUrl": "https://empattritionprediction.onrender.com/"
+      "liveUrl": "https://empattritionprediction.onrender.com/",
+      "logo": "eap",
+      "video": "https://www.youtube.com/embed/L149JbjFJf4"
     },
     {
       "id": "ecommerce",
       "title": "E-commerce Website",
       "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
       "technologies": ["React", "CSS", "Bootstrap"],
-      "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone"
+      "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone",
+      "logoname": "amazon",
+      "video": "https://www.youtube.com/embed/LvgwoJFa5vk"
     }
   ],
 

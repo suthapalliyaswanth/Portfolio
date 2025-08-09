@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import portfolioData from '../data/portfolioData.json';
 import profileImage from '../static/profile.jpeg';
-import logo from '../static/attrisense.png';
 import bov from '../static/logos/bov.png';
 import jnv from '../static/logos/jnv.png';
 import nptel from '../static/logos/nptel.png';
@@ -183,9 +182,11 @@ const RightPane = () => {
               <div key={project.id} className="content-card">
                 <div className='project-header'>
                   <div><h3 className="project-title">{project.title}</h3></div>
-                  <div><button title="Preview" className="preview-button" onClick={() => handlePreview(project)}>
-                    <BiSolidCameraMovie size={18}/>
-                  </button></div>
+                  {project.video &&
+                    <div><button title="Preview" className="preview-button" onClick={() => handlePreview(project)}>
+                      <BiSolidCameraMovie size={18}/>
+                    </button></div>
+                  }
                 </div>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
