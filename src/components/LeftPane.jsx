@@ -106,7 +106,8 @@ const LeftPane = () => {
               </div>
               <a
                 href={personalInfo.resume_url}
-                download="Abhishek_Anantapalli.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="gradient-button"
               >
                 Preview Resume

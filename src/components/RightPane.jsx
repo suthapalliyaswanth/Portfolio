@@ -108,13 +108,14 @@ const RightPane = () => {
                   </svg>
                 </a>
               </div>
-          <a
-            href={personalInfo.resume_url}
-            download="Abhishek_Anantapalli_Resume.pdf"
-            className="gradient-button"
-          >
-            Preview Resume
-          </a>
+              <a
+                href={personalInfo.resume_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gradient-button"
+              >
+                Preview Resume
+              </a>
         </div>
         <FloatingNav
   sections={[
