@@ -311,7 +311,7 @@ body {
 
 .cloud-link:hover .cloud-icon {
   transform: scale(1);
-  color: #aee0f5;
+  color: #64c9f1;
   transition: all 0.3s ease;
 }
 
@@ -327,7 +327,15 @@ body {
 .svg-nav {
   transition: opacity 0.3s ease-in-out;
   position: relative;
-  margin-left: 60px;
+  margin-left: 70px;
+}
+
+.hint-for-nav{
+  margin-top: 70px;
+  margin-bottom: -70px;
+  margin-left: -90px;
+  color: #939393;
+  font-size: 13px;
 }
 
 .device-preview {
@@ -373,18 +381,18 @@ body {
 }
 
 .preview-button {
-  margin-top: 10px;
-  background: linear-gradient(to right, #6ec1e4, #4e54c8);
   color: white;
+  /* background-color: var(--accent-pink); */
+  background: linear-gradient(135deg,#00FFFF,#0369a1 );
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 4px 6px;
+  border-radius: 25px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .preview-button:hover {
-  background: linear-gradient(to right, #4e54c8, #6ec1e4);
+  transform: scale(1.1);
 }
 
 
@@ -419,14 +427,10 @@ body {
   color: var(--text-color);
 }
 
-.cloud-link:hover .cloud-svg {
-  color: var(--accent-sky-blue);
-}
-
 /* Cloud Icon */
 .cloud-icon {
   font-size: 6rem;
-  color: #cbd5e1; /* Tailwind's slate-300 */
+  color: #c5cfdc; /* Tailwind's slate-300 */
   width: 100%;
   height: 100%;
 }
@@ -497,6 +501,11 @@ body {
 
 @media (min-width: 1024px) {
   .mobile-header {
+    display: none;
+  }
+}
+@media (max-width: 1024px){
+  .preview-button {
     display: none;
   }
 }
@@ -637,6 +646,11 @@ body {
   gap: 1.5rem;
 }
 
+.project-header{
+  display: flex;
+  justify-content: space-between;
+}
+
 .project-title {
   font-size: 1.125rem;
   font-weight: 700;
@@ -722,11 +736,11 @@ body {
   font-weight: 500;
 }
 
-/* Category-specific styling */
-.skill-item.language {
-  background-color: #f6c1be; /* Light yellow */
-  border-color: #92400e;     /* Darker orange-brown */
-  color: #92400e;
+/* Category-specific styling */ 
+.skill-item.tools {
+  background-color: #c3feff; /* Light yellow */
+  border-color: #106e6b;     /* Darker orange-brown */
+  color: #0c6e71;
 }
 
 .skill-item.frontend {
@@ -741,7 +755,7 @@ body {
   color: #065f46;
 }
 
-.skill-item.tools {
+.skill-item.language {
   background-color: #f3e8ff; /* Light purple */
   border-color: #6b21a8;
   color: #6b21a8;
@@ -1010,5 +1024,10 @@ body {
   .education-header {
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .preview-button {
+    display: none;
   }
 }

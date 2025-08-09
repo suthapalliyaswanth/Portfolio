@@ -103,17 +103,23 @@ const LeftPane = () => {
           {/* Navigation & Preview */}
           <div className="bottom-section" ref={previewRef}>
             {!activeProject ? (
-              <div className="svg-nav">
-                <img className="thinking-img" src={think} alt="thinking" />
-                {navigationItems.map((item) => (
-                  <a key={item.id} href={item.href} id={item.cloudId} className="cloud-link">
-                    <div className="cloud-wrapper">
-                      <FontAwesomeIcon icon={faCloud} className="cloud-icon" />
-                      <span className="cloud-label">{item.label}</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
+              <>
+                <div className="svg-nav">
+                  <img className="thinking-img" src={think} alt="thinking" />
+                  {navigationItems.map((item) => (
+                    <a key={item.id} href={item.href} id={item.cloudId} className="cloud-link">
+                      <div className="cloud-wrapper" title={`looking for ${item.label}`}>
+                        <FontAwesomeIcon icon={faCloud} className="cloud-icon" />
+                        <span className="cloud-label">{item.label}</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+                <p className='hint-for-nav'>
+<pre>{`"Thinking of something,
+            ask clouds for guidance!"`}</pre>
+                </p>
+              </>
             ) : (
               <div className="device-preview.open">
                 <div className="preview-header">

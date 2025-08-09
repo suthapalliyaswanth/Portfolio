@@ -2,7 +2,7 @@
   "personalInfo": {
     "name": "D B Abhishek Anantapalli",
     "location": "📍 AndhraPradesh, India",
-    "title": "Full stack & ML Engineer",
+    "title": "Full stack Devloper",
     "email": "abhishekanantapalli@gmail.com",
     "linkedin": "https://www.linkedin.com/in/abhishekanantapalli",
     "github": "https://github.com/AbhiAnantapalli215",
@@ -25,7 +25,7 @@
   "projects": [
     {
       "id": "attrisense",
-      "title": "Attrisense HR Analytics Dashboard",
+      "title": "Attrisense",
       "description": "Created a React-based multi-page HR dashboard to monitor KPI metrics. Built an employee directory with pagination, profile editing, and integrated an ML model to detect employees at risk of attrition.",
       "technologies": ["React", "Firebase", "JavaScript", "Python"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/Attrisense",
@@ -42,15 +42,15 @@
     },
     {
       "id": "attrition-ml",
-      "title": "Employee Attrition Prediction (ML App)",
-      "description": "Built a Flask web app to predict employee attrition using an ensemble ML model. Captured user input via forms and returned real-time predictions with 85% test accuracy.",
+      "title": "Employee Attrition Prediction",
+      "description": "Developed a Flask web app to predict employee attrition using an ensemble ML model. Collected user input via forms and delivered real-time predictions with 86% test recall, prioritizing accurate leaver identification.",
       "technologies": ["Flask", "HTML/CSS", "Scikit-learn", "Docker"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/EmployeeAttritionPrediction",
       "liveUrl": "https://empattritionprediction.onrender.com/"
     },
     {
       "id": "ecommerce",
-      "title": "E-commerce Website Clone",
+      "title": "E-commerce Website",
       "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
       "technologies": ["React", "CSS", "Bootstrap"],
       "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone"

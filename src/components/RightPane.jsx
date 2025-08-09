@@ -7,6 +7,8 @@ import jnv from '../static/logos/jnv.png';
 import nptel from '../static/logos/nptel.png';
 import oracle from '../static/logos/oracle.png';
 import svec from '../static/logos/svec.png';
+import { BiSolidCameraMovie } from "react-icons/bi";
+
 
 const RightPane = () => {
   const logoMap = {
@@ -18,7 +20,6 @@ const RightPane = () => {
   };
 
   const [modalState, setModalState] = useState({ isVisible: false, title: '', message: '' });
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [showProfileModal, setShowProfileModal] = useState(false);
   const {
     personalInfo = {},
@@ -38,26 +39,47 @@ const RightPane = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [showProfileModal]);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const trimmed = Object.fromEntries(Object.entries(formData).map(([k, v]) => [k, v.trim()]));
-    if (!trimmed.name || !trimmed.email || !trimmed.message) {
-      showModal('Oops!', 'Please fill out all fields.');
-      return;
-    }
-    showModal('Success!', 'Your message has been sent!');
-    setFormData({ name: '', email: '', message: '' });
-  };
 
+    const form = e.target;
+    const data = new FormData(form);
+
+    // ✅ Send to Netlify (will still capture in dashboard)
+    fetch("/", {
+      method: "POST",
+      body: data,
+    }).catch((err) => console.error("Netlify submit error:", err));
+
+    // ✅ Send to Formspree (replace with your real endpoint)
+    const formspreeEndpoint = "https://formspree.io/f/mpwlkzpd";
+    try {
+      await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Formspree submit error:", err);
+      alert("There was a problem sending your message.");
+    }
+  }
   const handlePreview = (project) => {
     window.dispatchEvent(new CustomEvent('openPreviewProject', { detail: project }));
-  };
-
+  }
   return (
     <>
       <main className="right-pane">
@@ -154,7 +176,12 @@ const RightPane = () => {
           <div className="projects-container">
             {projects.map((project) => (
               <div key={project.id} className="content-card">
-                <h3 className="project-title">{project.title}</h3>
+                <div className='project-header'>
+                  <div><h3 className="project-title">{project.title}</h3></div>
+                  <div><button title="Preview" className="preview-button" onClick={() => handlePreview(project)}>
+                    <BiSolidCameraMovie size={18}/>
+                  </button></div>
+                </div>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
                   {project.technologies.map((tech, index) => (
@@ -168,7 +195,6 @@ const RightPane = () => {
                   {project.liveUrl && (
                     <a href={project.liveUrl} className="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
                   )}
-                  <button className="preview-button" onClick={() => handlePreview(project)}>preview</button>
                 </div>
               </div>
             ))}
@@ -223,8 +249,21 @@ const RightPane = () => {
         <section id="contact" className="section">
           <h2 className="section-title">Contact Me</h2>
           <div className="content-card">
-            <p className="contact-description">Have a question or want to work together? Feel free to reach out.</p>
-            <form onSubmit={handleSubmit} className="contact-form" aria-label="Contact Form">
+            <p className="contact-description">
+              Have a question or want to work together? Feel free to reach out.
+            </p>
+
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="contact-form"
+              aria-label="Contact Form"
+            >
+              {/* Required hidden input for Netlify */}
+              <input type="hidden" name="form-name" value="contact" />
+
               <input
                 type="text"
                 name="name"
@@ -252,7 +291,12 @@ const RightPane = () => {
                 onChange={handleInputChange}
                 required
               />
-              <button type="submit" className="gradient-button form-submit">Send Message</button>
+              <button
+                type="submit"
+                className="gradient-button form-submit"
+              >
+                Send Message
+              </button>
             </form>
           </div>
         </section>
