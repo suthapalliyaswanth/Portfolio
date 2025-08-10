@@ -5,7 +5,12 @@ import { faXmark, faBars} from '@fortawesome/free-solid-svg-icons';
 const FloatingNav = ({ sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const ballRef = useRef(null);
-  const pos = useRef({ x: 50, y: 300, dragging: false });
+  const pos = useRef({
+    x: window.innerWidth-50,
+    y: window.innerHeight-80,
+    dragging: false
+  });
+
 
   const handleTouchStart = (e) => {
     pos.current.dragging = true;
