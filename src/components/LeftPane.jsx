@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import portfolioData from '../data/portfolioData.json';
 import think from '../static/thinking.png';
-import profileImage from '../static/profile.jpeg';
+import profileImage from '../static/profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloud , faXmark} from '@fortawesome/free-solid-svg-icons';
-import attrisense from '../static/logos/attrisense.png';
-import amazon from '../static/logos/amazon.png';
-import aru from '../static/logos/aru.png';
-import eap from '../static/logos/eap.png';
+// import attrisense from '../static/logos/attrisense.png';
+// import amazon from '../static/logos/amazon.png';
+// import aru from '../static/logos/aru.png';
+// import eap from '../static/logos/eap.png';
 
 const LeftPane = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -17,10 +17,10 @@ const LeftPane = () => {
   const { personalInfo, navigationItems } = portfolioData;
 
   const logoMap = {
-    amazon: amazon,
-    attrisense: attrisense,
-    aru: aru,
-    eap: eap,
+    // amazon: amazon,
+    // attrisense: attrisense,
+    // aru: aru,
+    // eap: eap,
   }
 
   const getYouTubeEmbedUrl = (url) => {

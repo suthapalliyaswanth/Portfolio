@@ -1,199 +1,132 @@
 {
   "personalInfo": {
-    "name": "D B Abhishek Anantapalli",
+    "name": "Suthapalli Yaswanth Srininvas Guptha",
     "location": "📍 AndhraPradesh, India",
-    "title": "Full stack Devloper",
-    "email": "abhishekanantapalli@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/abhishekanantapalli",
-    "github": "https://github.com/AbhiAnantapalli215",
-    "resume_url": "https://abhianantapalli215.github.io/Resume/resume.pdf"
+    "title": "Software Devloper",
+    "email": "Sutapalliyaswanth@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/suthapalli-yaswanth",
+    "github": "https://github.com/suthapalliyaswanth",
+    "resume_url": "https://drive.google.com/file/d/1lyGGDm-Vl1-u0tLr1W4uAhRYvcu8faRa/view"
   },
   "experiences": [
     {
-      "id": "aws-intern",
-      "title": "AWS Cloud Internship",
-      "company": "Brain Ovision Solutions Pvt. Ltd.",
-      "duration": "Jan 2024 - Mar 2024",
+      "id": "nit-intern",
+      "title": "Technology Development Internship",
+      "company": "NIT Andhra Pradesh",
+      "duration": "May 2025 - Jun 2025",
       "responsibilities": [
-        "Participated in remote AWS training and project-based learning.",
-        "Gained hands-on experience with EC2, S3, and VPC for infrastructure management.",
-        "Collaborated on cloud-based team projects and completed tasks on time."
+        "Collaborated with Dr. Sri Phani Krishna Karri on a conversational AI system using Python, Flask, JavaScript, and HTML/CSS.",
+        "Designed dynamic frontend features including auto-updating chat titles and real-time session history, boosting engagement by 20%.",
+        "Enhanced backend REST APIs, implemented unit testing, and resolved 10+ bugs to improve chatbot stability."
       ],
-      "logo": "bov"
+      "logo": "nit" 
     }
   ],
+
   "projects": [
     {
-      "id": "attrisense",
-      "title": "Attrisense",
-      "description": "Created a React-based multi-page HR dashboard to monitor KPI metrics. Built an employee directory with pagination, profile editing, and integrated an ML model to detect employees at risk of attrition.",
-      "technologies": ["React", "Firebase", "JavaScript", "Python"],
-      "githubUrl": "https://github.com/AbhiAnantapalli215/Attrisense",
-      "liveUrl": "https://attrisense.web.app",
-      "logoname": "attrisense",
-      "video": "https://www.youtube.com/embed/iuvF10BgBBQ"
-    },
-    {
-      "id": "auto-update-resume",
-      "title": "Overleaf Resume Update",
-      "description": "Developed a Chrome extension to fetch Overleaf LaTex code and push to GitHub. Designed a pipeline using GitHub Actions to compile the Latex code and push the resume to portfolio.",
-      "technologies": ["HTML/CSS", "GitHub Actions ", "Docker"],
-      "githubUrl": "https://github.com/AbhiAnantapalli215/Resume",
-      "liveUrl": "https://abhianantapalli215.github.io/Resume/setup.html",
-      "logo": "aru"
-    },
-    {
-      "id": "attrition-ml",
-      "title": "Employee Attrition Prediction",
-      "description": "Developed a Flask web app to predict employee attrition using an ensemble ML model. Collected user input via forms and delivered real-time predictions with 86% test recall, prioritizing accurate leaver identification.",
-      "technologies": ["Flask", "HTML/CSS", "Scikit-learn", "Docker"],
-      "githubUrl": "https://github.com/AbhiAnantapalli215/EmployeeAttritionPrediction",
-      "liveUrl": "https://empattritionprediction.onrender.com/",
-      "logo": "eap",
-      "video": "https://www.youtube.com/embed/L149JbjFJf4"
+      "id": "plant-pulse",
+      "title": "Plant Pulse — Plant Leaf Disease Detection",
+      "description": "Built an ensemble model using CNN, EfficientNet, and MobileNet to detect 30+ types of plant leaf diseases with 92%+ accuracy. Designed and deployed a responsive frontend using Streamlit, hosted on Streamlit Cloud.",
+      "technologies": ["Python", "Streamlit", "Machine Learning", "CNN", "EfficientNet", "MobileNet"],
+      "githubUrl": "https://github.com/suthapalliyaswanth/plant-leaf-diesease-detection-using-CNN",
+      "liveUrl": "https://plant-leaf.streamlit.app/",
+      "logo": "nit"
     },
     {
       "id": "ecommerce",
-      "title": "E-commerce Website",
-      "description": "Recreated Amazon's front-end UI with React and a third-party API. Implemented key e-commerce features like cart management and responsive layout, applying React hooks and context management.",
-      "technologies": ["React", "CSS", "Bootstrap"],
-      "githubUrl": "https://github.com/AbhiAnantapalli215/amazon-clone",
-      "logoname": "amazon",
-      "video": "https://www.youtube.com/embed/LvgwoJFa5vk"
+      "title": "E-Commerce Web Application",
+      "description": "Developed a full-stack e-commerce site with product listing, add-to-cart, checkout, and admin dashboard. Implemented REST APIs in Spring Boot with JPA and H2 database, achieving a 30% reduction in response time.",
+      "technologies": ["Java", "Spring Boot", "REST API", "JPA", "H2 Database"],
+      "githubUrl": "https://github.com/suthapalliyaswanth/E-Commerce",
+      "logo": "ecommerce"
+    },
+    {
+      "id": "aws-vpc",
+      "title": "AWS VPC Application",
+      "description": "Provisioned a custom AWS VPC with 4 subnets, internet gateway, and NAT to create a secure and scalable infrastructure. Configured EC2 instances with IAM policies and automated deployment with Terraform.",
+      "technologies": ["AWS", "EC2", "VPC", "IAM", "Terraform", "Security Groups"],
+      "githubUrl": "https://github.com/suthapalliyaswanth/aws-vpc-application",
+      "logo": "aws"
     }
   ],
 
   "skills": [
-    {
-      "name": "Java",
-      "category": "Language",
-      "logo": "https://skillicons.dev/icons?i=java"
-    },
-    {
-      "name": "C++",
-      "category": "Language",
-      "logo": "https://skillicons.dev/icons?i=cpp"
-    },
-    {
-      "name": "Python",
-      "category": "Language",
-      "logo": "https://skillicons.dev/icons?i=python"
-    },
-    {
-      "name": "JavaScript",
-      "category": "Language",
-      "logo": "https://skillicons.dev/icons?i=javascript"
-    },
-    {
-      "name": "React",
-      "category": "Frontend",
-      "logo": "https://skillicons.dev/icons?i=react"
-    },
-    {
-      "name": "HTML",
-      "category": "Frontend",
-      "logo": "https://skillicons.dev/icons?i=html"
-    },
-    {
-      "name": "CSS",
-      "category": "Frontend",
-      "logo": "https://skillicons.dev/icons?i=css"
-    },
-    {
-      "name": "Bootstrap",
-      "category": "Frontend",
-      "logo": "https://skillicons.dev/icons?i=bootstrap"
-    },
-    {
-      "name": "Flask",
-      "category": "Backend",
-      "logo": "https://skillicons.dev/icons?i=flask"
-    },
-    {
-      "name": "Firebase",
-      "category": "Backend",
-      "logo": "https://skillicons.dev/icons?i=firebase"
-    },
-    {
-      "name": "MySQL",
-      "category": "Backend",
-      "logo": "https://skillicons.dev/icons?i=mysql"
-    },
-    {
-      "name": "MongoDB",
-      "category": "Backend",
-      "logo": "https://skillicons.dev/icons?i=mongodb"
-    },
-    {
-      "name": "GitHub",
-      "category": "Tools",
-      "logo": "https://skillicons.dev/icons?i=github"
-    },
-    {
-      "name": "AWS",
-      "category": "Tools",
-      "logo": "https://skillicons.dev/icons?i=aws"
-    },
-    {
-      "name": "Docker",
-      "category": "Deployment",
-      "logo": "https://skillicons.dev/icons?i=docker"
-    }
+    { "name": "C", "category": "Language", "logo": "https://skillicons.dev/icons?i=c" },
+    { "name": "Java", "category": "Language", "logo": "https://skillicons.dev/icons?i=java" },
+    { "name": "Python", "category": "Language", "logo": "https://skillicons.dev/icons?i=python" },
+    { "name": "JavaScript", "category": "Language", "logo": "https://skillicons.dev/icons?i=javascript" },
+    { "name": "HTML", "category": "Frontend", "logo": "https://skillicons.dev/icons?i=html" },
+    { "name": "CSS", "category": "Frontend", "logo": "https://skillicons.dev/icons?i=css" },
+    { "name": "Django", "category": "Backend", "logo": "https://skillicons.dev/icons?i=django" },
+    { "name": "Flask", "category": "Backend", "logo": "https://skillicons.dev/icons?i=flask" },
+    { "name": "Spring Boot", "category": "Backend", "logo": "https://skillicons.dev/icons?i=spring" },
+    { "name": "MySQL", "category": "Database", "logo": "https://skillicons.dev/icons?i=mysql" },
+    { "name": "AWS", "category": "Cloud", "logo": "https://skillicons.dev/icons?i=aws" },
+    { "name": "Docker", "category": "Containerization", "logo": "https://skillicons.dev/icons?i=docker" },
+    { "name": "Terraform", "category": "Tools", "logo": "https://skillicons.dev/icons?i=terraform" },
+    { "name": "Jenkins", "category": "Tools", "logo": "https://skillicons.dev/icons?i=jenkins" },
+    { "name": "GitHub", "category": "Tools", "logo": "https://skillicons.dev/icons?i=github" }
   ],
-
 
   "education": [
     {
       "id": "btech",
-      "institution": "Sri Vasavi Engineering College",
-      "degree": "B.Tech in Computer Science",
+      "institution": "Sri Vasavi Engineering College, Tadepalligudem",
+      "degree": "B.Tech in Computer Science and Engineering (AI)",
       "duration": "2022 - Present",
-      "grade": "CGPA: 9.2/10",
+      "grade": "CGPA: 8.81",
       "logo": "svec"
     },
     {
       "id": "intermediate",
-      "institution": "JNV Pedavegi, Eluru",
-      "degree": "Intermediate (+2) & SSC",
-      "duration": "2019 - 2022",
-      "grade": "Intermediate: 93%, SSC: 86%",
-      "logo": "jnv"
+      "institution": "Sri Venkateswara Junior College, Jangareddygudem",
+      "degree": "Class XII (BIEAP)",
+      "duration": "2020 - 2022",
+      "grade": "Percentage: 87%",
+      "logo": "venka"
+    },
+    {
+      "id": "school",
+      "institution": "ZPPH School, Yadovole",
+      "degree": "Class X (State Board)",
+      "duration": "2019 - 2020",
+      "grade": "Percentage: 98%",
+      "logo": "zpphs"
     }
   ],
+
   "certifications": [
     {
-      "id": "datascience",
-      "title": "Oracle Certified Data Science Professional",
-      "provider": "(OCI 2025)",
-      "score": "Score: 78%",
-      "duration": "Jun-Jul 2025",
-      "logo": "oracle"
+      "id": "azure-ai",
+      "title": "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+      "provider": "Microsoft",
+      "duration": "2024 - 2025",
+      "logo": "azure"
     },
     {
-      "id": "cybersecurity",
-      "title": "Cybersecurity and Privacy (NPTEL)",
+      "id": "nptel-iot",
+      "title": "Internet of Things (NPTEL)",
       "provider": "NPTEL",
-      "score": "Score: 70%",
-      "duration": "Jul-Oct 2024",
+      "duration": "2023",
       "logo": "nptel"
     },
     {
-      "id": "networks",
-      "title": "Computer Networks & Internet Protocol (NPTEL)",
+      "id": "nptel-cloud",
+      "title": "Cloud Computing (NPTEL)",
       "provider": "NPTEL",
-      "score": "Score: 83%",
-      "duration": "Jan-Apr 2024",
+      "duration": "2023",
       "logo": "nptel"
     },
     {
-      "id": "aws-training",
-      "title": "AWS Cloud Training (Brain Ovision)",
-      "provider": "Brain Ovision",
-      "score": "Internship-based",
-      "duration": "Jan-Mar 2024",
-      "logo": "bov"
+      "id": "nptel-cyber",
+      "title": "Cybersecurity & Privacy (NPTEL)",
+      "provider": "NPTEL",
+      "duration": "2024",
+      "logo": "nptel"
     }
   ],
+
   "navigationItems": [
     { "id": "education", "label": "Education ?", "href": "#education", "cloudId": "cloud-edu" },
     { "id": "experience", "label": "Experience ?", "href": "#experience", "cloudId": "cloud-exp" },

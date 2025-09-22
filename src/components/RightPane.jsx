@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import portfolioData from '../data/portfolioData.json';
-import profileImage from '../static/profile.jpeg';
-import bov from '../static/logos/bov.png';
-import jnv from '../static/logos/jnv.png';
+import profileImage from '../static/profile.jpg';
+import nit from '../static/logos/nit.png';
+import venka from '../static/logos/venka.png';
 import nptel from '../static/logos/nptel.png';
-import oracle from '../static/logos/oracle.png';
+import azure from '../static/logos/azure.png';
 import svec from '../static/logos/svec.png';
+import zpphs from '../static/logos/zpphs.png';
 import { BiSolidCameraMovie } from "react-icons/bi";
 import FloatingNav from './FloatingNav';
 
 const RightPane = () => {
   const logoMap = {
-    bov: bov,
-    jnv: jnv,
+    nit: nit,
     nptel: nptel,
     svec: svec,
-    oracle: oracle
+    venka: venka,
+    azure: azure,
+    zpphs: zpphs
   };
 
   const [modalState, setModalState] = useState({ isVisible: false, title: '', message: '' });
